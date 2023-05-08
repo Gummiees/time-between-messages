@@ -1,0 +1,6 @@
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 justify-start itms-start">
+    <textarea formControlName="text" rows="10" placeholder="Paste the text here"></textarea>
+    <button type="submit" [disabled]="form.invalid || form.disabled">Calculate</button>
+  </form>
+
