@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-template": {
+    "time-between-messages": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-template",
+            "outputPath": "dist/time-between-messages",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-template:build:production"
+              "browserTarget": "time-between-messages:build:production"
             },
             "development": {
-              "browserTarget": "angular-template:build:development"
+              "browserTarget": "time-between-messages:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-template:build"
+            "browserTarget": "time-between-messages:build"
           }
         },
         "test": {
@@ -111,7 +111,7 @@
           "options": {
             "prerender": false,
             "ssr": false,
-            "browserTarget": "angular-template:build:production",
+            "browserTarget": "time-between-messages:build:production",
             "firebaseProject": "template-project-gummiees",
             "firebaseHostingSite": "template-project-gummiees"
           }

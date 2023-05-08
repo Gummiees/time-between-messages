@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "time-between-messages": {
+      "hosting": {
+        "time-between-messages": [
+          "time-between-messages"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "time-between-messages"
   }

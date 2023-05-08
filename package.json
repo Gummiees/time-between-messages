@@ -11,6 +11,7 @@
     "watch": "ng build --watch --configuration development",
     "build": "ng build",
     "buildpro": "ng build --configuration production",
+    "deploy": "firebase deploy",
     "commit": "npm run lint && git add . && git commit -m \"auto-commit\"",
     "push": "npm run commit && git push"
   },
