@@ -20,12 +20,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FailedComponent } from './components/failed/failed.component';
 import { FormComponent } from './components/form/form.component';
-import { FormService } from './components/form/form.service';
+import { LoadingComponent } from './components/loading/loading.component';
 import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, ResultsComponent],
+  declarations: [
+    AppComponent,
+    FormComponent,
+    ResultsComponent,
+    LoadingComponent,
+    FailedComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,7 +49,7 @@ import { ResultsComponent } from './components/results/results.component';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [ScreenTrackingService, UserTrackingService, FormService],
+  providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

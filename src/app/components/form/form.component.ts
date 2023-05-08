@@ -1,48 +1,30 @@
-import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { FormService } from './form.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
 })
-export class FormComponent implements OnDestroy {
+export class FormComponent {
   public form: FormGroup = new FormGroup({});
   public textControl: FormControl<string | null> = new FormControl<
     string | null
   >(null, [Validators.required]);
+  public error = false;
 
   @Output()
   public calculate: EventEmitter<string> = new EventEmitter();
 
-  private subscription?: Subscription;
-
-  constructor(private formService: FormService) {
+  constructor() {
     this.setForm();
-    this.listenToFormDisabled();
-  }
-
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
   }
 
   public async onSubmit() {
     if (this.form.valid) {
       this.calculate.emit(this.textControl.value ?? '');
+    } else {
+      this.error = true;
     }
-  }
-
-  private listenToFormDisabled() {
-    this.subscription = this.formService.isFormDisabled$.subscribe(
-      (isDisabled) => {
-        if (isDisabled) {
-          this.form.disable();
-        } else {
-          this.form.enable();
-        }
-      }
-    );
   }
 
   private setForm() {
