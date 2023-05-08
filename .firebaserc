@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "template-project-gummiees": {
+      "hosting": {
+        "angular-template": [
+          "template-project-gummiees"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "template-project-gummiees"
+  }
+}
