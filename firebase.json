@@ -1,7 +1,7 @@
 {
   "hosting": {
-    "target": "angular-template",
-    "public": "dist/angular-template",
+    "target": "time-between-messages",
+    "public": "dist/time-between-messages",
     "ignore": [
       "**/.*"
     ],

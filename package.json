@@ -11,7 +11,6 @@
     "watch": "ng build --watch --configuration development",
     "build": "ng build",
     "buildpro": "ng build --configuration production",
-    "buildpro:github": "ng build --configuration production --base-href https://gummiees.github.io/angular-template/",
     "commit": "npm run lint && git add . && git commit -m \"auto-commit\"",
     "push": "npm run commit && git push"
   },
