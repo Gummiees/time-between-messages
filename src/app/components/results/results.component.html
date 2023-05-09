@@ -3,6 +3,11 @@
     <h1 class="font-bold text-6xl">Yippieeee!!</h1>
     <img src="assets/happy-kitten.gif" width="300px">
     <h2>Here are the results:</h2>
-  {{ results }}
+    <div>
+      <div *ngFor="let result of results" class="flex items-center gap-4">
+        <h2 class="m-0 text-blue-900 font-bold min-w-[85px]">{{ parseDiff(result.diff) }}</h2>
+        <div>{{ result.line }}</div>
+      </div>
+    </div>
   <button mat-flat-button color="primary" type="button" (click)="onClean()">Start again</button>
 </div>

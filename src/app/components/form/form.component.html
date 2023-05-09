@@ -2,9 +2,15 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 justify-center items-center">
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>
+        Username
+      </mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>
         Paste the text here
       </mat-label>
-      <textarea matInput formControlName="text" rows="10"></textarea>
+      <textarea matInput formControlName="search" rows="10"></textarea>
     </mat-form-field>
     <img class="cursor-pointer" src="assets/search.gif" alt="search GIF" (click)="onSubmit()" width="200px">
     <div *ngIf="error" class="flex flex-col items-center">

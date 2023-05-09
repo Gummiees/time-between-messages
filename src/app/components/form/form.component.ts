@@ -1,5 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+export type FormResult = {
+  username: string;
+  search: string;
+};
 
 @Component({
   selector: 'app-form',
@@ -7,13 +12,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormComponent {
   public form: FormGroup = new FormGroup({});
-  public textControl: FormControl<string | null> = new FormControl<
+  public usernameControl: FormControl<string | null> = new FormControl<
+    string | null
+  >(null, [Validators.required]);
+  public searchControl: FormControl<string | null> = new FormControl<
     string | null
   >(null, [Validators.required]);
   public error = false;
 
+  @Input()
+  public set formResults(results: FormResult | undefined) {
+    if (results) {
+      this.form.patchValue(results);
+    } else {
+      this.form.reset();
+    }
+  }
+
   @Output()
-  public calculate: EventEmitter<string> = new EventEmitter();
+  public search: EventEmitter<FormResult> = new EventEmitter();
 
   constructor() {
     this.setForm();
@@ -21,7 +38,10 @@ export class FormComponent {
 
   public async onSubmit() {
     if (this.form.valid) {
-      this.calculate.emit(this.textControl.value ?? '');
+      this.search.emit({
+        username: this.form.controls.username.value,
+        search: this.form.controls.search.value,
+      });
     } else {
       this.error = true;
     }
@@ -29,7 +49,8 @@ export class FormComponent {
 
   private setForm() {
     this.form = new FormGroup({
-      text: this.textControl,
+      search: this.searchControl,
+      username: this.usernameControl,
     });
   }
 }

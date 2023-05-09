@@ -3,7 +3,17 @@
     <img src="assets/cry-kitten.gif" width="300px">
     <h1 class="font-bold text-6xl">Something went wrong...</h1>
   </div>
-  <h2>Make sure the text follows a similar format to this</h2>
+  <div *ngIf="errors.length; else usernameError">
+    <h2>Problems were found in those lines:</h2>
+    <pre class="bg-gray-700 text-white p-4 flex flex-col rounded-md">
+      <ng-container *ngFor="let error of errors">{{error}}</ng-container></pre>
+  </div>
+  <ng-template #usernameError>
+    <h2 class="font-bold text-4xl">The username was not found anywhere!</h2>
+  </ng-template>
+
+
+  <h4>Make sure the text follows a similar format to this</h4>
   <pre class="bg-gray-700 text-white p-4 flex flex-col rounded-md">
 (15:55:37 GMT) username: Example text
 (15:55:44 GMT) username: Example text
