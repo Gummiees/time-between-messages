@@ -51,7 +51,7 @@ export class AppComponent {
   }
 
   private isLineCorrect(line: string): boolean {
-    return line.at(0) === '(';
+    return line[0] === '(';
   }
 
   private getLineTimeStamp(line: string): Date {
